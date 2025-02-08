@@ -8,15 +8,16 @@ const RestroCardWithLable = WithLabel(RestroCards)
 export default function RestroCard() {
     const [restro, setRestro] = useState([]);
     const [search, setSearch] = useState("");
-    const [filterData, setFilterData] = useState(["hello"]);
+    const [filterData, setFilterData] = useState([]);
     const [loading, setLoading] = useState(false)
     const getData = async () => {
         setLoading(false)
         const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=15.1387047&lng=76.9397118&is-seo-homepage-enabled=true");
         const data = await response.json();
         console.log(data)
-        setRestro(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setFilterData(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setRestro(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilterData(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        console.log(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setLoading(true)
     }
 
@@ -73,7 +74,7 @@ export default function RestroCard() {
                 {loading ? <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
 
                     {(
-                        filterData?.map((restro) => {
+                        filterData.map((restro) => {
                             return (
                                 restro.info.aggregatedDiscountInfoV3 ?
                                     <RestroCardWithLable

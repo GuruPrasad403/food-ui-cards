@@ -1,10 +1,10 @@
 import { FaStar } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 
-export default function RestroCards({id,img, name, rating, time, cuisine, location}) {
+export default function RestroCards({id,img, name, rating, time, cuisine, location,text}) {
     const navigate = useNavigate()
     return (
-        <div className="col-span-1 bg-white flex flex-col justofy-around w-96 cursor-pointer hover:transform hover:scale-90 transition rounded-xl"
+        <div className={`col-span-1 bg-white flex flex-col justofy-around w-96 cursor-pointer  rounded-xl ${!text && "hover:transform hover:scale-90 transition" }`}
         onClick={()=>{
             navigate(`/restaurants/${id}`)
         }}
@@ -39,7 +39,7 @@ export const WithLabel = (RestroCards)=>{
         console.log(props)
         return(    
         <div className="relative hover:transform hover:scale-90 transition">
-            <div className={`absolute z-99  text-white font-bold text-xl w-full text-left px-10 top-66 rounded-b-xl bg-black opacity-80 bg-transparent`}>
+            <div className={`absolute z-99  text-white font-bold text-2xl w-full text-center px-10 top-58 py-3 rounded-b-xl bg-linear-to-b  from-zinc-200 to-black bg-transparent opacity-90`}>
             {text.header +" "+ text.subHeader}
             </div>
             <RestroCards 

@@ -31,3 +31,21 @@ export default function RestroCards({id,img, name, rating, time, cuisine, locati
         </div>
     )
 }
+
+
+export const WithLabel = (RestroCards)=>{
+    return (props)=>{
+        const {text} = props
+        console.log(props)
+        return(    
+        <div className="relative hover:transform hover:scale-90 transition">
+            <div className={`absolute z-99  text-white font-bold text-xl w-full text-left px-10 top-66 rounded-b-xl bg-black opacity-80 bg-transparent`}>
+            {text.header +" "+ text.subHeader}
+            </div>
+            <RestroCards 
+             {...props} 
+            />
+        </div>
+    )
+    }
+}

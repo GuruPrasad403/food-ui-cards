@@ -12,12 +12,12 @@ export default function RestroCard() {
     const [loading, setLoading] = useState(false)
     const getData = async () => {
         setLoading(false)
-        const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=15.1387047&lng=76.9397118&is-seo-homepage-enabled=true");
+        const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=15.1387047&lng=76.9397118");
         const data = await response.json();
         console.log(data)
-        setRestro(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setFilterData(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        console.log(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setRestro(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilterData(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        console.log(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setLoading(true)
     }
 
